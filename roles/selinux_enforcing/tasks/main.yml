@@ -1,0 +1,6 @@
+---
+- name: Enforcing SELinux
+  selinux:
+    policy: targeted
+    state: enforcing
+  when: ansible_os_family == 'RedHat' and ansible_selinux.config_mode == 'permissive'

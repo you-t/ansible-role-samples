@@ -1,0 +1,18 @@
+---
+- name: Disable ipv6 interface
+  sysctl:
+    state: present
+    name: "{{ item }}"
+    value: 1
+    sysctl_set: yes
+    reload: yes
+  with_items:
+    - net.ipv6.conf.all.disable_ipv6
+    - net.ipv6.conf.default.disable_ipv6
+
+- name: Disable ip6tables for CentOS6 or EL6
+  service:
+    name: ip6tables
+    enabled: no
+    state: stopped
+  when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0]|int == 6

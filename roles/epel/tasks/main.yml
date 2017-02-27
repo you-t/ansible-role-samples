@@ -1,7 +1,14 @@
 ---
-- name: Install epel-release 
+- name: Install epel-release for CentOS7
   yum:
     name: epel-release
     state: latest
     update_cache: yes
-  when: ansible_os_family =='RedHat'
+  when: ansible_os_family =='RedHat' and ansible_distribution_version.split('.')[0]|int == 7
+
+- name: Install epel-release for CentOS6
+  yum:
+    name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+    state: latest
+    update_cache: yes
+  when:  ansible_os_family =='RedHat' and ansible_distribution_version.split('.')[0]|int == 6

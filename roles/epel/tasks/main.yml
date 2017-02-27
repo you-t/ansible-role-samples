@@ -11,4 +11,4 @@
     name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
     state: latest
     update_cache: yes
-  when:  ansible_os_family =='RedHat' and ansible_distribution_version.split('.')[0]|int == 6
+  when: ansible_os_family =='RedHat' and ansible_distribution_version.split('.')[0]|int == 6

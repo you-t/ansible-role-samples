@@ -13,3 +13,14 @@
     - regexp: '^#?\s*PermitEmptyPasswords'
       line: 'PermitEmptyPasswords no'
   when: ansible_os_family == 'RedHat'
+
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted
+
+- name: sshd is restarted
+  service:
+    name: sshd
+    state: started
+    enabled: yes

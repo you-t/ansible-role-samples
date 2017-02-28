@@ -1,0 +1,7 @@
+---
+redis_packages_ubuntu:
+  - libjemalloc1
+  - redis-tools
+  - redis-server
+
+redis_config_path: /etc/redis/redis.conf

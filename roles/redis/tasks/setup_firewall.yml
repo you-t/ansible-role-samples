@@ -1,0 +1,20 @@
+---
+- name: Allow redis port for firewalld
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+  with_items:
+    - "{{ redis_firewalld_port }}"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0]|int == 7
+
+- name: Allow redis port for ufw
+  ufw:
+    port: "{{ item }}"
+    state: enabled
+    proto: tcp
+    rule: allow
+  with_items:
+    - "{{ redis_service_port }}"
+  when: ansible_os_family == 'Debian'

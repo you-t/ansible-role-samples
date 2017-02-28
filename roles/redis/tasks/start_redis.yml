@@ -1,0 +1,14 @@
+---
+- name: Start redis service
+  systemd:
+    name: redis
+    state: restarted
+    enabled: yes
+
+- name: Wait for redis start
+  wait_for:
+    host: localhost
+    port: "{{ redis_service_port }}"
+    delay: 5
+    timeout: 60
+

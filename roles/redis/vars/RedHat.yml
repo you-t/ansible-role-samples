@@ -1,0 +1,7 @@
+---
+redis_firewalld_port:
+  - "{{ redis_service_port }}/tcp"
+redis_packages_centos7:
+  - jemalloc
+  - redis
+redis_config_path: /etc/redis.conf

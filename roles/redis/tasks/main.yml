@@ -1,0 +1,7 @@
+---
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+- include: roles/redis/tasks/install.yml
+- include: roles/redis/tasks/setup_firewall.yml
+- include: roles/redis/tasks/edit_redis_conf.yml
+- include: roles/redis/tasks/start_redis.yml

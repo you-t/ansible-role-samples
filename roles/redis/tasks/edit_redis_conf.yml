@@ -1,0 +1,12 @@
+---
+- name : Edit redis.conf
+  lineinfile:
+    dest: "{{ redis_config_path }}"
+    state: present
+    backrefs: yes
+    owner: redis
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: "^bind"
+      line: "bind 0.0.0.0"

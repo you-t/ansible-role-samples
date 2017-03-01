@@ -1,12 +1,2 @@
 ---
 redis_service_port: 6379
-redis_firewalld_port:
-  - "{{ redis_service_port }}/tcp"
-redis_packages_centos7:
-  - jemalloc
-  - redis
-
-redis_packages_ubuntu:
-  - libjemalloc1
-  - redis-tools
-  - redis-server

@@ -1,6 +1,25 @@
-# ansible-role-samples
-The sample roles for ansible.
+ansible-role-samples
+====
 
-- Suppored Ansible version 2.2
+Overview
 
-- Tested OS CentOS7 Ubuntu16.04LTS
+## Description
+This project exposes a sample of the role of ansible.
+
+## Requirement
+ansible 2.2 or above.  
+
+## Supported OS
+CentOS7  
+Ubuntu 16.04LTS  
+  
+notice: Some of roles can execute on CentOS6, but don't test a lot.
+## Usage
+soon...
+## Install
+soon...
+## Licence
+MIT Licence
+## Author
+you-t
+

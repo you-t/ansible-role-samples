@@ -16,6 +16,7 @@
   with_items:
     - "^deb.+nginx$"
     - "^deb-src.+nginx$"
+  when: ansible_os_family == 'Debian'
 
 - name: Add nginx repository
   lineinfile:

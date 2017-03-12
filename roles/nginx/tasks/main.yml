@@ -1,0 +1,7 @@
+---
+- name: Add OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+- include: roles/nginx/tasks/before_install.yml
+- include: roles/nginx/tasks/install.yml
+- include: roles/nginx/tasks/setup_firewall.yml
+- include: roles/nginx/tasks/start_nginx.yml

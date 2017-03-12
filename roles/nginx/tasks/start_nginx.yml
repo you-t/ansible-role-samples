@@ -1,0 +1,14 @@
+---
+
+- name: Start nginx service
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
+
+- name: Wait for nginx start
+  wait_for:
+    host: localhost
+    port: "{{ nginx_http_port }}"
+    delay: 5
+    timeout: 60

@@ -1,0 +1,27 @@
+---
+- name: Setup yum nginx repository
+  template:
+    src: nginx.repo.j2
+    dest: /etc/yum.repos.d/nginx.repo
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_os_family == 'RedHat'
+
+- name: Remove the defined nginx repository if it exists
+  lineinfile:
+    dest: /etc/apt/sources.list
+    state: absent
+    regexp: "{{ item }}"
+  with_items:
+    - "^deb.+nginx$"
+    - "^deb-src.+nginx$"
+
+- name: Add nginx repository
+  lineinfile:
+    dest: /etc/apt/sources.list
+    line: "{{ item }} {{ nginx_repo_url}} {{ansible_distribution_release }} nginx"
+  with_items:
+    - deb
+    - deb-src
+  when: ansible_os_family == 'Debian'

@@ -1,0 +1,3 @@
+---
+nginx_firewalld_port:
+  - "{{ nginx_http_port }}/tcp"

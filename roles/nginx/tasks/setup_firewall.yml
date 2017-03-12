@@ -1,0 +1,19 @@
+---
+- name: Allow nginx ports for firewalld 
+  firewalld:
+    port: "{{ item }}"
+    permanent: yes
+    immediate: yes
+    state: enabled
+  with_items: "{{ nginx_firewalld_port }}"
+  when: ansible_os_family == 'RedHat' and ansible_distribution_version.split('.')[0]|int == 7
+
+- name: Allow nginx ports for ufw
+  ufw:
+    port: "{{ item }}"
+    state: enabled
+    proto: tcp
+    rule: allow
+  with_items:
+    - "{{ nginx_http_port }}"
+  when: ansible_os_family == 'Debian'

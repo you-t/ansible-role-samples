@@ -14,10 +14,12 @@ CentOS7
 Ubuntu 16.04LTS  
   
 notice: Some of roles can execute on CentOS6, but don't test a lot.
-## Usage
-soon...
 ## Install
 soon...
+## Usage
+1.Create an inventory file  
+2.Create a playbook  
+3.Select the roles you want to execute in the playbook
 ## Licence
 MIT Licence
 ## Author

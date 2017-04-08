@@ -15,7 +15,7 @@ Ubuntu 16.04LTS
   
 notice: Some of roles can execute on CentOS6, but don't test a lot.
 ## Install
-soon...
+$git clone https://github.com/you-t/ansible-role-samples.git
 ## Usage
 1.Create an inventory file  
 2.Create a playbook  
